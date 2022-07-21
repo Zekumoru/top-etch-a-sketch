@@ -37,7 +37,3 @@ button:active {
 .square {
     background-color: lightgray;
 }
-
-.hovered {
-    background-color: rgb(24, 25, 26);
-}

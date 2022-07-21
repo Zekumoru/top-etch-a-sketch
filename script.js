@@ -1,4 +1,8 @@
+
+const BLACK_DECREASE_PERCENT = 0.1;
+
 let grid;
+let blackMultiplier = 1;
 
 function createGrid(x, y) {
     const grid = document.createElement('div');
@@ -26,8 +30,25 @@ function createSquare(length) {
 
 function addHoverEffect(square) {
     square.addEventListener('mouseover', (e) => {
-        square.classList.add('hovered');
+        square.style.backgroundColor = generateRandomRGB(blackMultiplier);
+        if (blackMultiplier > 0) {
+            blackMultiplier -= BLACK_DECREASE_PERCENT;
+        }
+        else if (blackMultiplier < 0) {
+            blackMultiplier = 0;
+        }
     });
+}
+
+function generateRandomRGB(blackMultiplier = 1) {
+    let r = random(255 * blackMultiplier);
+    let g = random(255 * blackMultiplier);
+    let b = random(255 * blackMultiplier);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+function random(max) {
+    return Math.floor(Math.random() * max);
 }
 
 document.querySelector('button.resize').addEventListener('click', (e) => {
@@ -42,6 +63,7 @@ document.querySelector('button.resize').addEventListener('click', (e) => {
 
     grid.remove();
     grid = createGrid(size, size);
+    blackMultiplier = 1;
 });
 
 grid = createGrid(32, 32);
