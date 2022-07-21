@@ -12,14 +12,11 @@ body {
 
 
 .grid {
-    width: 960px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .square {
-    width: 60px;
-    height: 60px;
     background-color: lightgray;
     border: 1px solid #18191a;
 }
