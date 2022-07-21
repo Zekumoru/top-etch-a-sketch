@@ -17,7 +17,14 @@ function createSquare(length) {
     square.classList.add('square');
     square.style.width = length + 'px';
     square.style.height = length + 'px';
+    addHoverEffect(square);
     return square;
 }
 
-createGrid(16, 16);
+function addHoverEffect(square) {
+    square.addEventListener('mouseover', (e) => {
+        square.classList.add('hovered');
+    });
+}
+
+createGrid(32, 32);
