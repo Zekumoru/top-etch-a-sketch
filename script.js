@@ -2,7 +2,20 @@
 const BLACK_DECREASE_PERCENT = 0.1;
 
 let grid;
-let blackMultiplier = 1;
+let blackMultiplier = {
+    value: 1,
+    decrease(value = BLACK_DECREASE_PERCENT) {
+        if (this.value > 0) {
+            this.value -= value;
+        }
+        else if (this.value < 0) {
+            this.value = 0;
+        }
+    },
+    reset() { 
+        this.value = 1;
+    }
+};
 
 function createGrid(x, y) {
     const grid = document.createElement('div');
@@ -30,13 +43,8 @@ function createSquare(length) {
 
 function addHoverEffect(square) {
     square.addEventListener('mouseover', (e) => {
-        square.style.backgroundColor = generateRandomRGB(blackMultiplier);
-        if (blackMultiplier > 0) {
-            blackMultiplier -= BLACK_DECREASE_PERCENT;
-        }
-        else if (blackMultiplier < 0) {
-            blackMultiplier = 0;
-        }
+        square.style.backgroundColor = generateRandomRGB(blackMultiplier.value);
+        blackMultiplier.decrease();
     });
 }
 
@@ -63,7 +71,14 @@ document.querySelector('button.resize').addEventListener('click', (e) => {
 
     grid.remove();
     grid = createGrid(size, size);
-    blackMultiplier = 1;
+    blackMultiplier.reset();
+});
+
+document.querySelector('button.reset').addEventListener('click', (e) => {
+    for (const child of grid.children) {
+        child.style.backgroundColor = '';
+    }
+    blackMultiplier.reset();
 });
 
 grid = createGrid(32, 32);
