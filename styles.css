@@ -37,3 +37,17 @@ button:active {
 .square {
     background-color: lightgray;
 }
+
+.reset {
+    border-color: darksalmon;
+}
+
+.reset:hover {
+    background-color: darksalmon;
+    color: #35383a;
+}
+
+.reset:active {
+    background-color: #d68a70;
+    border-color: #d68a70;
+}
