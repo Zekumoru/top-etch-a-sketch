@@ -1,3 +1,5 @@
+let grid;
+
 function createGrid(x, y) {
     const grid = document.createElement('div');
     grid.style.width = '600px';
@@ -10,6 +12,7 @@ function createGrid(x, y) {
         }
     }
     document.body.appendChild(grid);
+    return grid;
 }
 
 function createSquare(length) {
@@ -27,4 +30,18 @@ function addHoverEffect(square) {
     });
 }
 
-createGrid(32, 32);
+document.querySelector('button.resize').addEventListener('click', (e) => {
+    let size = +prompt('Enter new grid size. (Min: 8, Max: 100)');
+    
+    if (!size || size < 8) {
+        size = 8;
+    }
+    else if (size > 100) {
+        size = 100;
+    }
+
+    grid.remove();
+    grid = createGrid(size, size);
+});
+
+grid = createGrid(32, 32);

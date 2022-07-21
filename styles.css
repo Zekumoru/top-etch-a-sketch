@@ -10,6 +10,24 @@ body {
     background-color: #18191a;
 }
 
+button {
+    background-color: transparent;
+    border: 2px solid powderblue;
+    border-radius: 4px;
+    padding: 0.8rem 1.4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: powderblue;
+    color: #35383a;
+}
+
+button:active {
+    background-color: #9dc8cd;
+    border-color: #9dc8cd;
+}
 
 .grid {
     display: flex;
@@ -18,7 +36,6 @@ body {
 
 .square {
     background-color: lightgray;
-    border: 1px solid #18191a;
 }
 
 .hovered {
