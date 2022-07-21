@@ -10,6 +10,7 @@ body {
     background-color: #18191a;
     flex-direction: column;
     align-items: center;
+    margin: 16px 0;
 }
 
 body,
@@ -40,6 +41,8 @@ button:active {
 .grid {
     display: flex;
     flex-wrap: wrap;
+    border: 4px solid powderblue;
+    box-sizing: content-box;
 }
 
 .square {

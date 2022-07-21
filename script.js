@@ -19,7 +19,7 @@ let blackMultiplier = {
 
 function createGrid(x, y) {
     const grid = document.createElement('div');
-    grid.style.width = '600px';
+    grid.style.width = '592px';
     grid.classList.add('grid');
 
     for (let i = 0; i < x; i++) {
